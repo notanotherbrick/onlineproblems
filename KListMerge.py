@@ -6,7 +6,7 @@ class ListNode(object):
     def printList(self):
     	head=self
     	temp=""
-    	while(head):-1000
+    	while(head):
     		temp= temp+str(head.val)+"->"
     		head=head.next
     	print temp
@@ -55,10 +55,23 @@ def main():
 
 
 	L=[L1,L2,L3,L4,L5,L6]
+	# Lk=mergeTwoLinkedList(L3,L4)
+	# Lk.printList()
+	L=[[1]]
 
-	L0=mergeTwoLinkedList(L1,L2)
-	L0.printList
+	Lm=mergeListOfLinkedList(L,0,len(L)-1)
+	print Lm
+	#Lm.printList()
 
+def mergeListOfLinkedList(L,lindex,rindex):
+	if(rindex-lindex==0):
+		return L[rindex]
+	elif(rindex-lindex==1):
+		return mergeTwoLinkedList(L[lindex],L[rindex])
+	else:
+		mid=(lindex+rindex)/2
+		return mergeTwoLinkedList(mergeListOfLinkedList(L,lindex,mid),
+			mergeListOfLinkedList(L,mid+1,rindex))
 
 
 def mergeTwoLinkedList(left,right):
@@ -68,17 +81,21 @@ def mergeTwoLinkedList(left,right):
 		if (left==None):
 			head.next=right
 			right=right.next
-		elif(right==None)
+			head=head.next
+		elif(right==None):
 			head.next=left
 			left=left.next
+			head=head.next
 		elif(left.val<=right.val):
 			head.next=left
 			left=left.next
+			head=head.next
 		else:
 			head.next=right
 			right=right.next
+			head=head.next
 
-	return t
+	return t.next
 
 
 
