@@ -32,6 +32,11 @@ for j in range(npairs-1): # no of pairs except last - edge case
         #print j*k+i+1,"pre",nums[(j*k):(j*k)+i],temp2,"post",nums[(j*k)+i+1:k*(j+1)],temp3
         result[j*k+i]=temp*temp2
 
+    temp=prodArray(subprod[:j])*prodArray(subprod[j+1:n])
+i=
+while(i<n):
+    i+=1
+
 print result
 
 # deal for last pair here
