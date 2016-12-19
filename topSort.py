@@ -5,6 +5,10 @@ Created on Mon Nov 21 19:45:00 2016
 @author: Hobbiton
 """
 
+'''
+This only works for Directed Graphs
+'''
+
 from collections import defaultdict
 class Graph():
     def __init__(self):
@@ -30,9 +34,9 @@ class Graph():
     
     def topsort_helper(self,v,visited,order):
         print v, visited
-        if visited[v]=='g':
+        if visited[v]=='g': # in process
             return -1
-        elif visited[v]=='w':
+        elif visited[v]=='w': # not explored
             visited[v]='g'
             if v in self.graph:
                 for u in self.graph[v]:
@@ -40,18 +44,20 @@ class Graph():
                         return -1
                 
             
-            visited[v]='b'
+            visited[v]='b' # closed
             order.append(v)
 
 g= Graph()
 g.add_edge(5, 2);
-g.add_edge(5, 0);
-g.add_edge(4, 0);
-g.add_edge(4, 1);
-g.add_edge(2, 3);
-g.add_edge(3, 1);
-g.add_edge(1,0);
-g.add_edge(0,2);
+g.add_edge(2, 0);
+g.add_edge(0, 5);
+print g.graph
+#g.add_edge(4, 0);
+#g.add_edge(4, 1);
+#g.add_edge(2, 3);
+#g.add_edge(3, 1);
+#g.add_edge(1,0);
+#g.add_edge(0,2);
 #g.add_edge(3, 1);
 #g.add_edge(2, 3);
 #g.add_edge(1, 3);
