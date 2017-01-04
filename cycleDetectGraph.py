@@ -40,19 +40,20 @@ class UndirectedGraph():
 
 
 g= UndirectedGraph()
-g.add_edge(5, 2);
-g.add_edge(2, 0);
+g.add_edge(5, 2)
+g.add_edge(2, 0)
 #g.add_edge(0, 5);
 #print g.graph
-g.add_edge(4, 0);
-g.add_edge(4, 1);
-g.add_edge(2, 3);
+g.add_edge(4, 0)
+g.add_edge(4, 1)
+g.add_edge(2, 3)
 #g.add_edge(3, 1);
 #g.add_edge(1, 0);
 #g.add_edge(0, 2);
 #g.add_edge(3, 1);
 #g.add_edge(2, 3);
-g.add_edge(6, 3);
+g.add_edge(6, 3)
+g.add_edge(1,6)
 
 print g.topsort()
             
